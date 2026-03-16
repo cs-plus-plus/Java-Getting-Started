@@ -1,4 +1,4 @@
-# Introduction to Git, GitHub, JUnit, Maven, GitHub Classroom, and GitHub Desktop
+# Introduction to Git, GitHub, JUnit, Maven, GitHub Classroom, and GitHub Codespaces
 
 ## What is Git?
 
@@ -18,6 +18,25 @@ GitHub is a web-based platform that hosts Git repositories. It provides tools fo
 - **Pull Requests**: A way to propose changes to a project; allows for code review and discussion before merging.
 - **Issues and Project Boards**: Tools for tracking bugs, feature requests, and project tasks.
 
+## What is GitHub Codespaces?
+
+GitHub Codespaces is a cloud-based development environment that runs directly in your browser. It gives you a full VS Code editor with all the tools you need — no local installation required.
+
+### Why Use Codespaces?
+- **No setup required**: Everything is pre-configured — Java, Maven, extensions, and dependencies are ready to go.
+- **Works anywhere**: All you need is a web browser. Works on Chromebooks, school computers, tablets, etc.
+- **Consistent environment**: Every student gets the exact same setup, eliminating "it works on my machine" issues.
+- **Fast start**: Click a button and you're coding in under a minute.
+
+### How to Open a Codespace
+1. Go to the assignment repository on GitHub
+2. Click the green **"Code"** button at the top
+3. Select the **"Codespaces"** tab
+4. Click **"Create codespace on main"**
+5. Wait for the environment to load (this may take a few minutes the first time)
+
+> **Note:** If the Java extension shows errors on first load, press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Chromebook) and run **"Developer: Reload Window"**. This is a one-time setup step.
+
 ## What is Maven?
 
 Maven is a build automation and project management tool primarily used for Java projects. It helps manage project dependencies, build lifecycle, and documentation, simplifying the build process and project setup.
@@ -32,33 +51,74 @@ Maven is a build automation and project management tool primarily used for Java 
 JUnit is a popular testing framework for Java. It is used for writing and running repeatable automated tests, helping ensure that code behaves as expected by validating the correctness of the code through tests.
 
 ### Key Features of JUnit
-- **Annotations**: 
+- **Annotations**:
   - `@Test`: Marks a method as a test case.
-  - `@Before`: Executes code before each test (setup).
-  - `@After`: Executes code after each test (cleanup).
+  - `@DisplayName`: Gives a test a human-readable name.
+  - `@BeforeEach` / `@AfterEach`: Setup and cleanup code that runs before/after each test.
 - **Assertions**:
   - `assertEquals(expected, actual)`: Checks if two values are equal.
   - `assertTrue(condition)`: Checks if a condition is true.
-  - `assertNull(object)`: Checks if an object is null.
+  - `assertAll(...)`: Runs multiple assertions and reports all failures (not just the first one).
 
-## Benefits of Git, GitHub, Maven, and JUnit in High School Computer Science Classes
+## What is GitHub Classroom?
 
-- **Encourages Collaboration**: Students can work together on projects, learning how to manage code contributions from multiple people.
-- **Introduces Real-World Tools and Practices**: Familiarizes students with industry-standard tools and concepts of build automation, version control, and testing.
-- **Supports Learning and Problem Solving**: Provides a platform to explore open-source projects and contribute, enhancing learning through real-world applications.
+GitHub Classroom is a tool designed to help educators manage coding assignments using GitHub.
 
-## GitHub Classroom and GitHub Desktop
+### How It Works
+1. Your instructor posts an assignment link in Google Classroom
+2. Click the link to accept the assignment
+3. GitHub Classroom creates a **personal copy** of the repository just for you
+4. You write your code and push (save) it to GitHub
+5. **Autograding** runs automatically when you push — tests check your code and assign points
+6. Check the **Actions** tab on GitHub to see your score
 
-### GitHub Classroom
-- A tool designed to help educators manage coding assignments using GitHub.
-- Simplifies distribution, collection, and grading of student code.
-- Automatically sets up repositories for each student or group and integrates with GitHub's version control features.
+### Checking Your Score
+1. Go to your assignment repository on GitHub
+2. Click the **Actions** tab at the top
+3. Click on the most recent workflow run
+4. Each test shows as a separate step with its point value
+5. Green checkmarks = passing, red X = failing
 
-### GitHub Desktop
-- A user-friendly application for managing Git repositories locally without using the command line.
-- Provides a visual interface for common Git tasks like committing, branching, merging, and pushing changes.
-- Helps beginners and those unfamiliar with Git commands manage projects easily.
+## Running Tests
 
-## Next Steps | Workflow
+### In Codespaces / VS Code
+- Click the **Testing** icon (flask/beaker) in the left sidebar
+- Click **Run All Tests** to run everything
+- Or right-click individual tests to run them one at a time
+- Green checkmark = passing, red X = failing
 
-Navigate to the [Workflow Repo](https://github.com/cs-plus-plus/Workflow) for more information on creating and setting up projects using these tools.
+### From the Command Line
+```bash
+# Run all tests
+mvn test
+
+# Run a specific test method
+mvn -Dtest=TestClassName#testMethodName test
+```
+
+## GitHub Desktop (Alternative to Codespaces)
+
+If you prefer to work locally instead of using Codespaces:
+
+1. Download and install [GitHub Desktop](https://desktop.github.com/)
+2. Open GitHub Desktop and sign in with your GitHub account
+3. Click **File** > **Clone Repository**
+4. Select the **URL** tab and paste your assignment repository URL
+5. Choose a local path and click **Clone**
+6. Open the project in VS Code or IntelliJ IDEA
+
+### Local Requirements
+- Java 17 or newer ([Download](https://adoptium.net/))
+- Maven 3.x ([Download](https://maven.apache.org/download.cgi))
+- VS Code with Java extensions, or IntelliJ IDEA
+
+## Benefits of These Tools in Computer Science Classes
+
+- **Industry-standard tools**: Git, GitHub, Maven, and JUnit are used by professional software developers worldwide.
+- **Collaboration skills**: Learn how to manage code contributions from multiple people.
+- **Automated testing**: Get instant feedback on your code through autograded tests.
+- **Cloud development**: Codespaces lets you code from anywhere without installing anything.
+
+## Next Steps
+
+Navigate to the [Workflow Repo](https://github.com/cs-plus-plus/Java-Workflow) for a step-by-step guide on accepting assignments, writing code, and submitting your work.
